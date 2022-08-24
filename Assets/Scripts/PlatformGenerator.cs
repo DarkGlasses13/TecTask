@@ -17,11 +17,18 @@ public class PlatformGenerator : MonoBehaviour
 
     private void Awake()
     {
+        float aspect = (Screen.width > Screen.height) ? (Screen.width / Screen.height) : (Screen.height / Screen.width);
         _camera = Camera.main;
-        _minimalDistance = _camera.orthographicSize * 2 * (Screen.width / Screen.height);
+        _maximalDistance = _camera.orthographicSize * 2 * aspect;
         _prefab = Resources.Load<Platform>("Platform");
-        _platforms = new(Create, Get, Return, null, true);
+        _platforms = new(Create, Get, Return, null);
         _lastPlatform = FindObjectOfType<Platform>();
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < 10; i++)
+            Spawn();
     }
 
     private void Spawn()
@@ -44,7 +51,7 @@ public class PlatformGenerator : MonoBehaviour
     {
         Platform platform = Instantiate(_prefab, _lastPlatform.transform.parent);
         platform.name = "Platform";
-        platform.gameObject.SetActive(false);
+        Return(platform);
         return platform;
     }
 }
