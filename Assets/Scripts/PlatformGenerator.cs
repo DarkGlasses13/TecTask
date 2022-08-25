@@ -7,22 +7,25 @@ public class PlatformGenerator : MonoBehaviour
     [SerializeField, Range(0.1f, 100)] private float _maximalSize;
     [SerializeField, Range(0.1f, 100)] private float _minimalDistance;
 
-    private float _maximalDistance;
-
     private Platform _prefab;
     private ObjectPool<Platform> _platforms;
     private Platform _lastPlatform;
 
     private Camera _camera;
 
+    public static float Apex { get; private set; }
+    public static float MaximalDistance { get; private set; }
+
     private void Awake()
     {
         float aspect = (Screen.width > Screen.height) ? (Screen.width / Screen.height) : (Screen.height / Screen.width);
+        Platform startablePlatform = FindObjectOfType<Platform>();
         _camera = Camera.main;
-        _maximalDistance = _camera.orthographicSize * 2 * aspect;
         _prefab = Resources.Load<Platform>("Platform");
-        _platforms = new(Create, Get, Return, null);
-        _lastPlatform = FindObjectOfType<Platform>();
+        _platforms = new(Create, Get, Return);
+        _lastPlatform = startablePlatform;
+        Apex = (startablePlatform.transform.position + Vector3.up * (startablePlatform.Size.y * 0.5f)).y;
+        MaximalDistance = _camera.orthographicSize * 2 * aspect - Mathf.Abs(Apex);
     }
 
     private void Start()
@@ -33,9 +36,9 @@ public class PlatformGenerator : MonoBehaviour
 
     private void Spawn()
     {
-        float distance = Random.Range(_minimalDistance, _maximalDistance);
+        float distance = Random.Range(_minimalDistance, MaximalDistance);
         Platform platform = _platforms.Get();
-        platform.transform.position = _lastPlatform.transform.position + Vector3.right * ((platform.Size + _lastPlatform.Size) * 0.5f + distance);
+        platform.transform.position = _lastPlatform.transform.position + Vector3.right * ((platform.Size.x + _lastPlatform.Size.x) * 0.5f + distance);
         _lastPlatform = platform;
     }
 
