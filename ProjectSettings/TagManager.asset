@@ -11,7 +11,7 @@ TagManager:
   - Character
   - Water
   - UI
-  - Platform
+  - Ground
   - 
   - 
   - 
@@ -44,6 +44,6 @@ TagManager:
   - name: Character
     uniqueID: 4241751661
     locked: 0
-  - name: Platform
+  - name: Ground
     uniqueID: 2376859851
     locked: 0
