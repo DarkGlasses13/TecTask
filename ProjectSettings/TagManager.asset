@@ -8,10 +8,18 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Character
+  - 
   - Water
   - UI
+<<<<<<< Updated upstream
   - Ground
+=======
+<<<<<<< Updated upstream
+  - Platform
+=======
+  - 
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   - 
   - 
   - 
@@ -41,9 +49,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< Updated upstream
   - name: Character
     uniqueID: 4241751661
     locked: 0
   - name: Ground
     uniqueID: 2376859851
     locked: 0
+=======
+>>>>>>> Stashed changes
