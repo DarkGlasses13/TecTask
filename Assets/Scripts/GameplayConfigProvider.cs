@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class ConfigProvider : MonoBehaviour
+public class GameplayConfigProvider : MonoBehaviour
 {
     [SerializeField] private GameplayConfig _config;
 
