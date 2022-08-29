@@ -28,7 +28,7 @@ namespace Motion
 
         private void OnEnable() => _bridgeBuilder.OnBuildingComplete += Move;
 
-        public void StartMoving() => Move(true, _platformGenerator.Get().Width * 0.5f - _bridgeBuilder.Indent);
+        public void StartMoving() => Move(true, _platformGenerator.Get().Width * 0.5f - _config.BuildingIndent);
 
         public void Move(bool isSuccess, float distance)
         {
