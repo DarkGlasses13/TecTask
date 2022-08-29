@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b501e19cb6f2a2d47a5932078e2ef366, type: 3}
+  m_Name: GameplayConfig
+  m_EditorClassIdentifier: 
+  _motionSpeed: 5
+  _fallingSpeed: 10
+  _minimalPlatformSize: 0.5
+  _maximalPlatformSize: 10
+  _minimalAbysWidth: 0.5
+  _startablePlatformCount: 5
+  _bridgeBuildingSpeed: 5
+  _bridgeLayingSpeed: 10
+  _buildingIndent: 0.5
+  _disappearDistance: 50
+  _punch: 1
